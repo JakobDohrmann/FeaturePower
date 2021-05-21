@@ -1,0 +1,44 @@
+README
+
+Requirements
+binaries: python3, GMP, MPC, MPFR, R
+python packages: gmpy, numpy, sklearn
+R packages: inTrees, randomForest
+
+On MaxOS (adjust for other platforms as needed):
+brew install python3 GMP MPC MPFR
+pip install gmpy numpy sklearn
+[From within R]
+install.packages("inTrees")
+install.packages("randomForest")
+
+src folder must remain in the following format:
+
+src
+|_segmentation
+     |_segmentation.csv
+|_toys
+     |_toys.csv
+|_wdbc
+     |_wdbc.csv
+|_wine
+     |_wine.csv
+|_README
+|_extract_rules.py
+|_r2python.py
+|_train_forest.R
+|_validation.py
+|_validation_cp.py
+
+To test feature power on the toys data, use the following function call:
+python3 validation.py
+
+To specify data set, hyperparameters, etc, use command line arguments. For example:
+python3 validation.py -f 'wine' -n 200 -m 6
+
+(see bottom of validation.py for a list of all valid command line arguments or run python3 validation.py --help)
+
+To test coalition power on the toys data, use the follow function call:
+python3 validation_cp.py
+
+At this point, the code base is not prepared to take any other data sets
